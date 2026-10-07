@@ -1,29 +1,28 @@
+// 3. NAMED CONSTRUCTOR + OPTIONAL PARAMETERS
 class Teacher {
   int id;
-  String firstName;
-  String lastName;
-  int age;
-  String phoneNumber;
-  String address;
-  String email;
+  String name;
+  String subject;
+  int experience;
 
-  Teacher(
-    this.id,
-    this.firstName,
-    this.lastName,
-    this.age,
-    this.phoneNumber,
-    this.address,
-    this.email,
-  );
+  Teacher({
+    required this.id,
+    required this.name,
+    this.subject = "General",
+    this.experience = 0,
+  });
 
-  void info() {
+  // Named constructor
+  Teacher.basic({
+    required this.id,
+    required this.name,
+    this.subject = "General",
+  }) : experience = 0;
+
+  void teacherInfo() {
     print('Teacher ID: $id');
-    print('First Name: $firstName');
-    print('Last Name: $lastName');
-    print('Age: $age');
-    print('Phone Number: $phoneNumber');
-    print('Address: $address');
-    print('Email: $email');
+    print('Name: $name');
+    print('Subject: $subject');
+    print('Experience: $experience years');
   }
 }
